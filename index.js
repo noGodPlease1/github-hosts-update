@@ -37,7 +37,6 @@ const generateHosts = (configs) => {
   configs.forEach((i) => {
     const whiteLen = 16 - i.ip.length;
     if (!i.ip) {
-      hostStr += `# ${i.url} update failed\n`;
     } else {
       hostStr += `${i.ip} ${" ".repeat(whiteLen)} ${i.url}\n`;
     }
