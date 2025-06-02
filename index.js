@@ -55,7 +55,7 @@ const generateHosts = (configs) => {
 const writeHosts = (hosts) => {
   const { hostStr, updateTime } = generateHosts(hosts);
   const template = fs.readFileSync("./README.template.md", "utf-8");
-  const nextReadme = template.toString().replace("{{hosts}}", hostStr).replace("{{last_update_time}}", updateTime);
+  const nextReadme = template.toString().replace("{{hosts}}", hostStr);
   fs.writeFileSync("./hosts", hostStr);
   fs.writeFileSync("./README.md", nextReadme);
 };
