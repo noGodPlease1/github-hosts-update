@@ -1,7 +1,6 @@
 name: UpdateHosts
 
 on:
-  push:
   schedule:
     - cron: "0 */2 * * *"  # 每两小时运行一次（UTC 时间）
   workflow_dispatch:
@@ -10,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12]
+        node-version: [18]
 
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +36,7 @@ jobs:
         run: exit 1
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
