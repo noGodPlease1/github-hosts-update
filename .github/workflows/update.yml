@@ -40,3 +40,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
+      - name: Sync to Gitee
+        run: |
+          git remote add gitee https://${{ secrets.GITEE_USER }}:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_REPO_PATH }}.git
+          git push --force gitee HEAD:main
+          git push --tags --force gitee
+        env:
+          GIT_AUTHOR_NAME: "hostsBot"
+          GIT_AUTHOR_EMAIL: "hostsBot@fake.com"
+          GIT_COMMITTER_NAME: "hostsBot"
+          GIT_COMMITTER_EMAIL: "hostsBot@fake.com"
