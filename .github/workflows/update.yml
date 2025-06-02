@@ -49,5 +49,5 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
-          source-repo: 'git@github.com:fliu2476/gh-hosts.git'
+          source-repo: 'git@github.com:noGodPlease1/gh-hosts.git'
           destination-repo: 'git@gitee.com:fliu2476/github-hosts.git'
